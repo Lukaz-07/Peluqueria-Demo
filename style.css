@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: #1e1e1e;
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #f1c40f;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: #dddddd;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+select:focus, input:focus {
+    border-color: #f1c40f;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 14px;
+    background-color: #25d366; /* Verde WhatsApp */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #1ebd5c;
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 11px;
+    color: #666666;
+}
