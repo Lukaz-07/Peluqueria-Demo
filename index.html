@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería Demo - Reserva de Turnos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>BARBERÍA DEMO</h1>
+            <p>Reservá tu turno en 30 segundos</p>
+        </header>
+
+        <form id="form-reserva">
+            <div class="form-group">
+                <label for="servicio">Elegí el servicio:</label>
+                <select id="servicio" required>
+                    <option value="" disabled selected>Seleccioná una opción</option>
+                    <option value="Corte de Cabello ($4500)">Corte de Pelo</option>
+                    <option value="Corte y Barba ($6000)">Corte y Barba</option>
+                    <option value="Perfilado de Barba ($2500)">Perfilado de Barba</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha">Elegí el día:</label>
+                <input type="date" id="fecha" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hora">Elegí la hora:</label>
+                <select id="hora" required>
+                    <option value="" disabled selected>Seleccioná un horario</option>
+                    <option value="10:00 hs">10:00 hs</option>
+                    <option value="11:00 hs">11:00 hs</option>
+                    <option value="16:00 hs">16:00 hs</option>
+                    <option value="17:00 hs">17:00 hs</option>
+                    <option value="18:00 hs">18:00 hs</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Tu Nombre:</label>
+                <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
+            </div>
+
+            <button type="submit" class="btn-enviar">Reservar por WhatsApp</button>
+        </form>
+
+        <footer>
+            <p>© 2026 Barbería Demo. Desarrollado por LucasM | Gestión de Turnos </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
