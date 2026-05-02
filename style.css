@@ -1,8 +1,15 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y RESET
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    color-scheme: dark; /* Fuerza al navegador a renderizar componentes nativos en modo oscuro */
 }
 
 body {
@@ -16,7 +23,9 @@ body {
     padding: 20px;
 }
 
-/* Efecto de vidrio oscuro elegante */
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL (Glassmorphism)
+   ========================================================================== */
 .glass-container {
     background: rgba(25, 25, 25, 0.6);
     backdrop-filter: blur(10px);
@@ -29,6 +38,9 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
 }
 
+/* ==========================================================================
+   ENCABEZADO Y LOGO
+   ========================================================================== */
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -39,16 +51,17 @@ header {
 }
 
 .logo {
-    width: 80px;
+    width: 90px; /* Tamaño aumentado y optimizado */
     height: auto;
-    filter: invert(80%) sepia(30%) saturate(800%) hue-rotate(350deg) brightness(100%); /* Tono dorado */
+    display: inline-block;
+    /* Se eliminó el filtro para conservar los colores originales de tu imagen */
 }
 
 header h1 {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: #d4af37; /* Dorado Premium */
+    color: #d4af37; /* Dorado elegante */
     text-transform: uppercase;
     margin-bottom: 5px;
 }
@@ -60,6 +73,9 @@ header h1 {
     letter-spacing: 1px;
 }
 
+/* ==========================================================================
+   FORMULARIO Y CAMPOS DE ENTRADA
+   ========================================================================== */
 .form-row {
     display: flex;
     gap: 15px;
@@ -85,46 +101,38 @@ label {
 select, input {
     width: 100%;
     padding: 14px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #1a1a1a; /* Fondo oscuro sólido para las opciones */
     border: 1px solid #333333;
     border-radius: 8px;
     color: #ffffff;
     font-size: 15px;
     outline: none;
     transition: all 0.3s ease;
-}
-/* --- ESTILO PARA LAS OPCIONES DESPLEGABLES --- */
-select option {
-    background-color: #1a1a1a; /* Fondo oscuro elegante */
-    color: #ffffff; /* Texto blanco */
-    font-size: 15px;
-    padding: 10px;
+    color-scheme: dark; /* Asegura que el menú desplegable sea oscuro en celulares y PC */
 }
 
-/* Evita que el fondo del input cambie al autocompletar en navegadores webkit */
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-    -webkit-text-fill-color: #ffffff;
-    -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset;
-    transition: background-color 5000s ease-in-out 0s;
+/* Estilo para las opciones del menú desplegable */
+select option {
+    background-color: #1a1a1a;
+    color: #ffffff;
 }
+
 select:focus, input:focus {
     border-color: #d4af37;
     box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
     transform: translateY(-2px);
 }
 
-/* Ocultar el icono del calendario genérico en algunos navegadores para que se vea más limpio */
+/* Optimización para el icono del calendario nativo */
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     opacity: 0.6;
     cursor: pointer;
 }
 
+/* ==========================================================================
+   BOTÓN DE ENVÍO (WhatsApp)
+   ========================================================================== */
 .btn-enviar {
     width: 100%;
     padding: 16px;
@@ -147,9 +155,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
 }
 
+/* ==========================================================================
+   PIE DE PÁGINA Y CORRECCIÓN DE AUTOCOMPLETADO
+   ========================================================================== */
 footer {
     text-align: center;
     margin-top: 30px;
     font-size: 11px;
     color: #555555;
+}
+
+/* Evita el fondo celeste de autocompletado en navegadores como Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
