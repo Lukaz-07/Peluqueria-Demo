@@ -39,7 +39,7 @@ header {
 }
 
 .logo {
-    width: 60px;
+    width: 80px;
     height: auto;
     filter: invert(80%) sepia(30%) saturate(800%) hue-rotate(350deg) brightness(100%); /* Tono dorado */
 }
@@ -93,7 +93,25 @@ select, input {
     outline: none;
     transition: all 0.3s ease;
 }
+/* --- ESTILO PARA LAS OPCIONES DESPLEGABLES --- */
+select option {
+    background-color: #1a1a1a; /* Fondo oscuro elegante */
+    color: #ffffff; /* Texto blanco */
+    font-size: 15px;
+    padding: 10px;
+}
 
+/* Evita que el fondo del input cambie al autocompletar en navegadores webkit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
 select:focus, input:focus {
     border-color: #d4af37;
     box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
