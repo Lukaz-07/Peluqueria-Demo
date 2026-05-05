@@ -71,44 +71,46 @@ select, input {
     outline: none;
 }
 
-/* --- SOLUCIÓN CALENDARIO VISIBLE --- */
+/* --- CALENDARIO VISIBLE (SIN FILTROS CONFLICTIVOS) --- */
+input[type="date"] {
+    color-scheme: dark; /* Obliga al navegador a usar su versión oscura (ícono blanco) */
+}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* Cambia el icono de negro a blanco */
     cursor: pointer;
+    opacity: 0.8;
+    /* Se eliminó el "filter" para evitar que invierta el color a negro */
 }
 
-select option {
-    background-color: #1a1a1a;
-    color: #ffffff;
-}
-
-/* --- ESTILO DEL BOTÓN CON ICONO --- */
 .btn-enviar {
     width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    color: white;
+    padding: 14px;
+    background-color: #25d366; 
+    color: #ffffff;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Espacio entre icono y texto */
+    gap: 12px; 
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
-    transition: 0.3s;
 }
 
-.btn-icon {
-    width: 20px;
-    height: 20px;
+
+.btn-enviar svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
 }
 
 .btn-enviar:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    background-color: #1ebd5c;
+    transform: translateY(-1px);
 }
 
 footer {
