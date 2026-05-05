@@ -1,33 +1,30 @@
-// --- 3. ENVÍO A WHATSAPP (VERSIÓN LIMPIA SIN EMOJIS) ---
-    document.getElementById('form-reserva').addEventListener('submit', function(e) {
-        e.preventDefault();
+document.getElementById('form-reserva').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-        const servicio = document.getElementById('servicio').value;
-        const fechaVal = document.getElementById('fecha').value;
-        const hora = document.getElementById('hora').value;
-        const nombre = document.getElementById('nombre').value;
-        const clienteTel = document.getElementById('whatsapp').value;
+    // 1. Capturar datos
+    const nombre = document.getElementById('nombre').value;
+    const whatsapp = document.getElementById('whatsapp').value;
+    const servicio = document.getElementById('servicio').value;
+    const fechaInput = document.getElementById('fecha').value;
+    const hora = document.getElementById('hora').value;
 
-        // Convertir formato AAAA-MM-DD a DD/MM/AAAA
-        const [anio, mes, dia] = fechaVal.split('-');
-        const fechaFormateada = `${dia}/${mes}/${anio}`;
+    // 2. Formatear fecha (de AAAA-MM-DD a DD/MM/AAAA)
+    const partes = fechaInput.split('-');
+    const fechaFinal = partes[2] + "/" + partes[1] + "/" + partes[0];
 
-        // NÚMERO DEL LOCAL (549 + Característica + Número)
-        const telefonoComercio = "5493424231853"; 
+    // 3. Configurar número del local
+    const telLocal = "5493424231853";
 
-        // Texto plano con formato básico de WhatsApp (negritas y saltos de línea)
-        const textoMensaje = 
-            "*NUEVA RESERVA DE TURNO*\n\n" +
-            "*Nombre:* " + nombre + "\n" +
-            "*Telefono:* " + clienteTel + "\n" +
-            "*Servicio:* " + servicio + "\n" +
-            "*Fecha:* " + fechaFormateada + "\n" +
-            "*Horario:* " + hora + "\n\n" +
-            "Favor de confirmar disponibilidad.";
+    // 4. Crear mensaje (Texto 100% limpio)
+    const mensaje = "NUEVA RESERVA" + "\n\n" +
+                    "Cliente: " + nombre + "\n" +
+                    "Tel: " + whatsapp + "\n" +
+                    "Servicio: " + servicio + "\n" +
+                    "Fecha: " + fechaFinal + "\n" +
+                    "Hora: " + hora + "\n\n" +
+                    "Confirmar turno por favor.";
 
-        // Usamos encodeURIComponent para que los espacios y saltos de línea no den error
-        const mensajeFinal = encodeURIComponent(textoMensaje);
-
-        const url = "https://wa.me/" + telefonoComercio + "?text=" + mensajeFinal;
-        window.open(url, '_blank');
-    });
+    // 5. Enviar
+    const url = "https://wa.me/" + telLocal + "?text=" + encodeURIComponent(mensaje);
+    window.open(url, '_blank');
+});
