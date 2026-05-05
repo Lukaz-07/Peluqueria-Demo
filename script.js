@@ -1,4 +1,4 @@
-// --- 3. ENVÍO A WHATSAPP ---
+// --- 3. ENVÍO A WHATSAPP (VERSIÓN LIMPIA SIN EMOJIS) ---
     document.getElementById('form-reserva').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -12,20 +12,22 @@
         const [anio, mes, dia] = fechaVal.split('-');
         const fechaFormateada = `${dia}/${mes}/${anio}`;
 
-        // NÚMERO DEL LOCAL (Asegúrate de que sea el tuyo)
+        // NÚMERO DEL LOCAL (549 + Característica + Número)
         const telefonoComercio = "5493424231853"; 
 
-        // Mensaje limpio y profesional
-        const mensaje = encodeURIComponent(
-            `*● NUEVA RESERVA DE TURNO ●*\n\n` +
-            `*Cliente:* ${nombre}\n` +
-            `*WhatsApp:* ${clienteTel}\n` +
-            `*Servicio:* ${servicio}\n\n` +
-            `*📅 Fecha:* ${fechaFormateada}\n` +
-            `*⏰ Horario:* ${hora}\n\n` +
-            `_Por favor, responda este mensaje para confirmar el turno._`
-        );
+        // Texto plano con formato básico de WhatsApp (negritas y saltos de línea)
+        const textoMensaje = 
+            "*NUEVA RESERVA DE TURNO*\n\n" +
+            "*Nombre:* " + nombre + "\n" +
+            "*Telefono:* " + clienteTel + "\n" +
+            "*Servicio:* " + servicio + "\n" +
+            "*Fecha:* " + fechaFormateada + "\n" +
+            "*Horario:* " + hora + "\n\n" +
+            "Favor de confirmar disponibilidad.";
 
-        const url = `https://wa.me/${telefonoComercio}?text=${mensaje}`;
+        // Usamos encodeURIComponent para que los espacios y saltos de línea no den error
+        const mensajeFinal = encodeURIComponent(textoMensaje);
+
+        const url = "https://wa.me/" + telefonoComercio + "?text=" + mensajeFinal;
         window.open(url, '_blank');
     });
